@@ -47,7 +47,7 @@ export function FooterSimple({ links }: FooterSimpleProps) {
     return (
         <div className={classes.footer}>
             <Container className={classes.inner}>
-                <p>Co2-Hammer</p>
+                <p>Co2-Hammer Logo</p>
                 <Group className={classes.links}>{items}</Group>
             </Container>
         </div>

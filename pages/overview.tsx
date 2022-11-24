@@ -1,4 +1,4 @@
-import { Container, Grid } from '@mantine/core'
+import { Container, Grid, Image } from '@mantine/core'
 import React from 'react'
 import { Card, Text, Button, Group } from '@mantine/core';
 import { useRouter } from "next/router";
@@ -12,6 +12,13 @@ const Overview = () => {
     return (
         <div>
             <Container>
+                <div style={{ marginLeft: "auto", marginRight: "auto" }}>
+                    <Image
+                        radius={"md"}
+                        src="step1.png"
+                        alt="first step"
+                    />
+                </div>
                 <h2>Schritt 1: Verbrauchsanalyse</h2>
                 <p>
                     Für das Prüfen des Potenzials Ihres Gebäudes bewerten wir als
@@ -47,7 +54,7 @@ const Overview = () => {
                     </Grid.Col>
                 </Grid>
                 <div style={{ display: "flex", justifyContent: "center", marginTop: 20 }}>
-                    <Button variant="gradient" gradient={{ from: 'teal', to: 'lime', deg: 105 }} onClick={() => switchPage()}>Weiter mit Schritt 1</Button>
+                    <Button variant="filled" onClick={() => switchPage()}>Weiter mit Schritt 1</Button>
                 </div>
             </Container>
         </div>
