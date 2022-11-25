@@ -77,11 +77,9 @@ export function HeroBullets() {
                 <div className={classes.inner}>
                     <div className={classes.content}>
                         <Title className={classes.title}>
-                            Ihre <span className={classes.highlight}>Plattform</span> bei<br /> der energetischen Modernisierung
+                            <span className={classes.highlight}>CO2 Hammer</span> ist die Plattform für Ihre energetische Modernisierung
                         </Title>
-                        <Text color="dimmed" mt="md">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod
-                        </Text>
+                        
 
                         <List
                             mt={30}
@@ -94,10 +92,10 @@ export function HeroBullets() {
                             }
                         >
                             <List.Item>
-                                <b>Ihr Beitrag zum Klimawandel</b> – Reduzieren Sie Ihre CO2-Emissionen lorem lorem ipsum
+                                <b>Ihr Beitrag zum Klimawandel</b> – Reduzieren Sie Ihre CO2-Emissionen und kommen Sie auf den 1,5°C Pfad
                             </List.Item>
                             <List.Item>
-                                <b>Personalisierte Maßnahmen</b> – Wir entwickeln für Sie individuelle Maßnahmen agestimmt auf Ihre Bedürfnisse
+                                <b>Personalisierte Maßnahmen</b> – Wir entwickeln für Sie individuelle Maßnahmen abgestimmt auf Ihre Immobilie
                             </List.Item>
                             <List.Item>
                                 <b>Steckbrief in 5 Minuten</b> – Erstellen Sie kostenlos und unverbindlich einen Steckbrief
@@ -111,7 +109,7 @@ export function HeroBullets() {
                             </Button>
                         </Group>
                     </div>
-                    <Image src={"/env_study.svg"} className={classes.image} alt={"man analyses trees"} />
+                    <Image src={"/steckbrief.png"} className={classes.image} alt={"man analyses trees"} />
                 </div>
             </Container>
         </div>

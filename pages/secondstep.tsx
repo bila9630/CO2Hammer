@@ -22,8 +22,8 @@ const Secondstep = () => {
         <div>
             <Container>
                 <h2>Schritt 2: Bestandsanalyse</h2>
-                <h3>Klimawirkung des Gebäudes: {celcius}</h3>
-                <h4>Klimawirkung ihres Gebäudes im Vergleich:</h4>
+                <h3>Klimawirkung ihres Gebäudes im Vergleich:</h3>
+                <p>Klimawirkung des Gebäudes: <b>{celcius}°C</b></p>
                 <ClientCustomBarChart />
                 <p>Für Ihre Beratung betrachten wir das Gebäude ganzheitlich. Dazu benötigen wir weitere Daten:</p>
                 <p>

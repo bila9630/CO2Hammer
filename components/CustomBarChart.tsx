@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { DatabaseContext } from '../context/DatabaseContext';
 
 import {
@@ -15,10 +15,20 @@ import {
 
 const CustomBarChart = () => {
     const { celcius }: any = useContext(DatabaseContext);
+    const [color, setColor] = useState("#e34e3d")
+
+    useEffect(() => {
+        if (celcius < 1.5) {
+            setColor("#51CF66")
+        } else if (celcius >= 1.5 && celcius < 2.0) {
+            setColor("#FCC419")
+        }
+    }, [celcius])
+
 
     const data = [
         {
-            "name": "Page A",
+            "name": "Klimawirkung",
             "Ihr Verbrauch": celcius,
             "Durchschnitt": 1.7,
             "Ziel": 1.5
@@ -33,7 +43,7 @@ const CustomBarChart = () => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="Ihr Verbrauch" fill="#e34e3d" />
+                <Bar dataKey="Ihr Verbrauch" fill={color} />
                 <Bar dataKey="Durchschnitt" fill="#FCC419" />
                 <Bar dataKey="Ziel" fill="#51CF66" />
             </BarChart>
