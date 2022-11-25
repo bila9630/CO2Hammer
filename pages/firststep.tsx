@@ -6,8 +6,8 @@ import { DatabaseContext } from '../context/DatabaseContext';
 const Firststep = () => {
     const router = useRouter();
     const [area, setArea] = useState<any | null>(100)
-    const [gas, setGas] = useState<any | null>(20000)
-    const [electric, setElectric] = useState<any | null>(10000)
+    const [gas, setGas] = useState<any | null>(15000)
+    const [electric, setElectric] = useState<any | null>(4000)
     const [propertyType, setPropertyType] = useState("RESIDENTIAL_SINGLE_FAMILY_HOUSING")
     const { setCelcius, setGasConsumption }: any = useContext(DatabaseContext);
 
