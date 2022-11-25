@@ -68,7 +68,7 @@ export function HeroBullets() {
     const router = useRouter();
 
     const switchPage = () => {
-        router.push("/overview")
+        router.push("/firststep")
     }
 
     return (

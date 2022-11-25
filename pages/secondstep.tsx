@@ -1,19 +1,26 @@
-import { Container, Image, Card, Group, Text } from '@mantine/core'
+import { Button, Container, Image, Card, Group, Text } from '@mantine/core'
 import React, { useContext } from 'react'
 import { DatabaseContext } from '../context/DatabaseContext';
+import { useRouter } from "next/router";
 
 const Secondstep = () => {
+    const router = useRouter();
     const { celcius }: any = useContext(DatabaseContext);
+
+    const switchPage = () => {
+        router.push("/secondquestions");
+    }
+
     return (
         <div>
             <Container>
-                <div style={{ marginLeft: "auto", marginRight: "auto" }}>
+                {/* <div style={{ marginLeft: "auto", marginRight: "auto" }}>
                     <Image
                         radius={"md"}
                         src="step2.png"
                         alt="second step"
                     />
-                </div>
+                </div> */}
                 <h2>Schritt 2: Bestandsanalyse</h2>
                 <h3>Klimawirkung des Gebäudes: {celcius}</h3>
                 <p>Für Ihre Beratung betrachten wir das Gebäude ganzheitlich. Dazu benötigen wir weitere Daten:</p>
@@ -36,6 +43,9 @@ const Secondstep = () => {
                         - wie viel Energie und CO2 Sie durch die Modernisierung sparen
                     </Text>
                 </Card>
+                <div style={{ display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20 }}>
+                    <Button variant="filled" onClick={() => switchPage()}>Weiter mit Schritt 2</Button>
+                </div>
             </Container>
         </div>
     )
