@@ -1,7 +1,10 @@
 import { Button, Container, Image, Card, Group, Text } from '@mantine/core'
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { DatabaseContext } from '../context/DatabaseContext';
 import { useRouter } from "next/router";
+
+// import CustomBarChart from '../components/CustomBarChart';
+import dynamic from 'next/dynamic';
 
 const Secondstep = () => {
     const router = useRouter();
@@ -11,18 +14,17 @@ const Secondstep = () => {
         router.push("/secondquestions");
     }
 
+    const ClientCustomBarChart = dynamic(
+        () => import('../components/CustomBarChart'), { ssr: false }
+    )
+
     return (
         <div>
             <Container>
-                {/* <div style={{ marginLeft: "auto", marginRight: "auto" }}>
-                    <Image
-                        radius={"md"}
-                        src="step2.png"
-                        alt="second step"
-                    />
-                </div> */}
                 <h2>Schritt 2: Bestandsanalyse</h2>
                 <h3>Klimawirkung des Gebäudes: {celcius}</h3>
+                <h4>Klimawirkung ihres Gebäudes im Vergleich:</h4>
+                <ClientCustomBarChart />
                 <p>Für Ihre Beratung betrachten wir das Gebäude ganzheitlich. Dazu benötigen wir weitere Daten:</p>
                 <p>
                     - zum Gebäude <br />
