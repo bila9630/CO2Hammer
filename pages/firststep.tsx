@@ -5,11 +5,11 @@ import { DatabaseContext } from '../context/DatabaseContext';
 
 const Firststep = () => {
     const router = useRouter();
-    const [area, setArea] = useState<any | null>(100)
-    const [gas, setGas] = useState<any | null>(15000)
-    const [electric, setElectric] = useState<any | null>(4000)
+    const [area, setArea] = useState<any | null>(500)
+    const [gas, setGas] = useState<any | null>(80000)
+    const [electric, setElectric] = useState<any | null>(20000)
     const [propertyType, setPropertyType] = useState("RESIDENTIAL_SINGLE_FAMILY_HOUSING")
-    const { setCelcius, setGasConsumption }: any = useContext(DatabaseContext);
+    const { setCelcius, setGasConsumption, setElectricConsumption }: any = useContext(DatabaseContext);
 
     const switchPage = async () => {
 
@@ -81,6 +81,7 @@ const Firststep = () => {
                 <div style={{ display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20 }}>
                     <Button variant="filled" onClick={() => {
                         setGasConsumption(gas)
+                        setElectricConsumption(electric)
                         switchPage()
                     }}>
                         Berechnen</Button>

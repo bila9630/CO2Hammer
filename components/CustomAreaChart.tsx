@@ -14,33 +14,33 @@ import {
 import { DatabaseContext } from '../context/DatabaseContext';
 
 const CustomAreaChart = () => {
-  const { gasConsumption }: any = useContext(DatabaseContext);
+  const { gasConsumption, electricConsumption }: any = useContext(DatabaseContext);
 
   const data = [
     {
       "name": "2022",
-      "Gas": 0.18,
-      "Gas Kosten": gasConsumption * 0.18,
+      "Stromkosten": electricConsumption * 0.445,
+      "Gaskosten": gasConsumption * 0.18,
     },
     {
       "name": "2023",
-      "Gas": 0.18,
-      "Gas Kosten": gasConsumption * 0.18,
+      "Stromkosten": electricConsumption * 0.445,
+      "Gaskosten": gasConsumption * 0.18,
     },
     {
       "name": "2024",
-      "Gas": 0.20,
-      "Gas Kosten": gasConsumption * 0.20,
+      "Stromkosten": electricConsumption * 0.445,
+      "Gaskosten": gasConsumption * 0.20,
     },
     {
       "name": "2025",
-      "Gas": 0.23,
-      "Gas Kosten": gasConsumption * 0.23,
+      "Stromkosten": electricConsumption * 0.445,
+      "Gaskosten": gasConsumption * 0.23,
     },
     {
       "name": "2026",
-      "Gas": 0.26,
-      "Gas Kosten": gasConsumption * 0.26,
+      "Stromkosten": electricConsumption * 0.445,
+      "Gaskosten": gasConsumption * 0.26,
     },
   ]
   return (
@@ -60,8 +60,8 @@ const CustomAreaChart = () => {
         <YAxis />
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
-        <Area type="monotone" dataKey="Gas Preise" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
-        <Area type="monotone" dataKey="Gas Kosten" stroke="#F03E3E" fillOpacity={1} fill="url(#colorPv)" />
+        <Area type="monotone" dataKey="Stromkosten" stackId={1} stroke="#ffc658" fillOpacity={1} fill="#ffc658" />
+        <Area type="monotone" dataKey="Gaskosten" stackId={1} stroke="#F03E3E" fillOpacity={1} fill="#F03E3E" />
         <Legend />
       </AreaChart>
     </div>

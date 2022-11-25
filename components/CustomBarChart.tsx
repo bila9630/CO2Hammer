@@ -18,7 +18,7 @@ const CustomBarChart = () => {
     useEffect(() => {
         if (celcius < 1.5) {
             setColor("#51CF66")
-        } else if (celcius >= 1.5 && celcius < 2.0) {
+        } else if (celcius >= 1.5 && celcius < 2.2) {
             setColor("#FCC419")
         }
     }, [celcius])
@@ -28,7 +28,7 @@ const CustomBarChart = () => {
         {
             "name": "Klimawirkung",
             "Ihr Verbrauch": celcius,
-            "Durchschnitt": 1.7,
+            "Durchschnitt": 2.2,
             "Ziel": 1.5
         },
     ]
