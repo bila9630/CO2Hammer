@@ -80,8 +80,7 @@ export function HeroBullets() {
                             Ihre <span className={classes.highlight}>Plattform</span> bei<br /> der energetischen Modernisierung
                         </Title>
                         <Text color="dimmed" mt="md">
-                            Build fully functional accessible web applications faster than ever – Mantine includes
-                            more than 120 customizable components and hooks to cover you in any situation
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod
                         </Text>
 
                         <List
@@ -98,7 +97,7 @@ export function HeroBullets() {
                                 <b>Ihr Beitrag zum Klimawandel</b> – Reduzieren Sie Ihre CO2-Emissionen lorem lorem ipsum
                             </List.Item>
                             <List.Item>
-                                <b>Personalisierte Maßnahme</b> – Wir entwickeln für Sie individuelle Maßnahmen agestimmt auf Ihre Bedürfnisse
+                                <b>Personalisierte Maßnahmen</b> – Wir entwickeln für Sie individuelle Maßnahmen agestimmt auf Ihre Bedürfnisse
                             </List.Item>
                             <List.Item>
                                 <b>Steckbrief in 5 Minuten</b> – Erstellen Sie kostenlos und unverbindlich einen Steckbrief

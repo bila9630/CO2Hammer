@@ -1,12 +1,47 @@
-import { Button, Container, Radio } from '@mantine/core'
-import React from 'react'
+import { Button, Container, Radio, NumberInput } from '@mantine/core'
+import React, { useContext, useState } from 'react'
 import { useRouter } from "next/router";
+import { DatabaseContext } from '../context/DatabaseContext';
 
 const Firststep = () => {
     const router = useRouter();
+    const [area, setArea] = useState<any | null>(100)
+    const [propertyType, setPropertyType] = useState("RESIDENTIAL_SINGLE_FAMILY_HOUSING")
+    const { setCelcius } : any = useContext(DatabaseContext);
 
-    const switchPage = () => {
+    const switchPage = async () => {
+
+        const response = await fetch("https://gateway2.switchboard-api.de/right/realestatecalculation/v1.0/building/baseline", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'switchboard-key': 'd1e38ac862a54bd2aee335cd342b5038'
+            },
+            body: JSON.stringify({
+                "area": area,
+                "baseYear": 2018,
+                "country": "DEU",
+                "emissions": {
+                    "districtCooling": 0,
+                    "districtHeating": 0,
+                    "electricity": 4000 * 0.441,
+                    "fuel": 10000 * 0.2,
+                    "fugitive": 0
+                },
+                "propertyType": propertyType,
+                // "shares": {
+                //     "electricCooling": 0.3,
+                //     "electricHeating": 0.27,
+                //     "fuelHeating": 0.2
+                // },
+                "targetYear": 2050
+            }),
+        })
+        let data = await response.json()
+        setCelcius(data.total)
+        console.log(data)
         router.push("/secondstep");
+
     }
 
     return (
@@ -28,12 +63,15 @@ const Firststep = () => {
                     name="home type"
                     label="Das Gebäude ist ein..."
                     withAsterisk
+                    onChange={setPropertyType}
                 >
-                    <Radio value="Ein- oder Zweifamilienhaus" label="Ein- oder Zweifamilienhaus" />
-                    <Radio value="Mehrfamilienhaus" label="Mehrfamilienhaus" />
+                    <Radio value="RESIDENTIAL_SINGLE_FAMILY_HOUSING" label="Ein- oder Zweifamilienhaus" />
+                    <Radio value="RESIDENTIAL_MULTI_FAMILY_HOUSING" label="Mehrfamilienhaus" />
                 </Radio.Group>
                 <br />
-                <Radio.Group
+                <NumberInput label="Hausfläche in qm" value={area} onChange={(val) => setArea(val)} />
+                <br />
+                {/* <Radio.Group
                     name="heating"
                     label="In dem Gebäude läuft eine..."
                     withAsterisk
@@ -55,11 +93,10 @@ const Firststep = () => {
                     <Radio value="Erdwärmepumpe" label="Erdwärmepumpe" />
                     <Radio value="Luftwärmepumpe" label="Luftwärmepumpe" />
                     <Radio value="Grundwasserwärmepumpe" label="Grundwasserwärmepumpe" />
-                </Radio.Group>
-                <p>Es folgen Inputs, die zur API weitergeleitet werden</p>
+                </Radio.Group> */}
                 <br />
-                <div style={{ display: "flex", justifyContent: "center", marginTop: 20 }}>
-                    <Button variant="filled" onClick={() => switchPage()}>Weiter mit Schritt 1</Button>
+                <div style={{ display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20 }}>
+                    <Button variant="filled" onClick={() => switchPage()}>Weiter mit Schritt 2</Button>
                 </div>
             </Container>
         </div>

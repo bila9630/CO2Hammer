@@ -53,7 +53,7 @@ const Overview = () => {
                         </Card>
                     </Grid.Col>
                 </Grid>
-                <div style={{ display: "flex", justifyContent: "center", marginTop: 20 }}>
+                <div style={{ display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20 }}>
                     <Button variant="filled" onClick={() => switchPage()}>Weiter mit Schritt 1</Button>
                 </div>
             </Container>
