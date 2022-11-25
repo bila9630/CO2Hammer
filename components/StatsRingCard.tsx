@@ -42,13 +42,14 @@ interface StatsRingCardProps {
     title: string;
     completed: number;
     total: number;
+    cost: number;
     stats: {
         value: number;
         label: string;
     }[];
 }
 
-export function StatsRingCard({ title, completed, total, stats }: StatsRingCardProps) {
+export function StatsRingCard({ title, completed, total, cost, stats }: StatsRingCardProps) {
     const { classes, theme } = useStyles();
     const items = stats.map((stat) => (
         <div key={stat.label}>
@@ -76,7 +77,7 @@ export function StatsRingCard({ title, completed, total, stats }: StatsRingCardP
                     </div>
                     <div>
                         <Text className={classes.lead} mt={30}>
-                            {completed} Tonnen
+                            {total} €
                         </Text>
                         <Text size="xs" color="dimmed">
                             Kosten
@@ -89,14 +90,14 @@ export function StatsRingCard({ title, completed, total, stats }: StatsRingCardP
                         roundCaps
                         thickness={6}
                         size={150}
-                        sections={[{ value: (completed / total) * 100, color: theme.primaryColor }]}
+                        sections={[{ value: (total / completed) * 100, color: theme.primaryColor }]}
                         label={
                             <div>
                                 <Text align="center" size="lg" className={classes.label} sx={{ fontSize: 22 }}>
-                                    {((completed / total) * 100).toFixed(0)}%
+                                    {cost}%
                                 </Text>
                                 <Text align="center" size="xs" color="dimmed">
-                                    Completed
+                                    Kosteneinsparung
                                 </Text>
                             </div>
                         }
