@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {
   CartesianGrid,
   AreaChart,
@@ -11,33 +11,36 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { DatabaseContext } from '../context/DatabaseContext';
 
 const CustomAreaChart = () => {
+  const { gasConsumption }: any = useContext(DatabaseContext);
+
   const data = [
     {
       "name": "2022",
       "Gas": 0.18,
-      "Strom": 0.445,
+      "Gas Kosten": gasConsumption * 0.18,
     },
     {
       "name": "2023",
       "Gas": 0.18,
-      "Strom": 0.445,
+      "Gas Kosten": gasConsumption * 0.18,
     },
     {
       "name": "2024",
       "Gas": 0.20,
-      "Strom": 0.446,
+      "Gas Kosten": gasConsumption * 0.20,
     },
     {
       "name": "2025",
       "Gas": 0.23,
-      "Strom": 0.449,
+      "Gas Kosten": gasConsumption * 0.23,
     },
     {
       "name": "2026",
       "Gas": 0.26,
-      "Strom": 0.451,
+      "Gas Kosten": gasConsumption * 0.26,
     },
   ]
   return (
@@ -49,16 +52,17 @@ const CustomAreaChart = () => {
             <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
           </linearGradient>
           <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
-            <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
+            <stop offset="5%" stopColor="#F03E3E" stopOpacity={0.8} />
+            <stop offset="95%" stopColor="#F03E3E" stopOpacity={0} />
           </linearGradient>
         </defs>
         <XAxis dataKey="name" />
         <YAxis />
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
-        <Area type="monotone" dataKey="Gas" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
-        <Area type="monotone" dataKey="Strom" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
+        <Area type="monotone" dataKey="Gas Preise" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+        <Area type="monotone" dataKey="Gas Kosten" stroke="#F03E3E" fillOpacity={1} fill="url(#colorPv)" />
+        <Legend />
       </AreaChart>
     </div>
   )

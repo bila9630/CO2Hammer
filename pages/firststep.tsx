@@ -6,10 +6,10 @@ import { DatabaseContext } from '../context/DatabaseContext';
 const Firststep = () => {
     const router = useRouter();
     const [area, setArea] = useState<any | null>(100)
-    const [gas, setGas] = useState<any | null>(4000)
+    const [gas, setGas] = useState<any | null>(20000)
     const [electric, setElectric] = useState<any | null>(10000)
     const [propertyType, setPropertyType] = useState("RESIDENTIAL_SINGLE_FAMILY_HOUSING")
-    const { setCelcius }: any = useContext(DatabaseContext);
+    const { setCelcius, setGasConsumption }: any = useContext(DatabaseContext);
 
     const switchPage = async () => {
 
@@ -77,32 +77,13 @@ const Firststep = () => {
                 <br />
                 <NumberInput label="Stromverbrauch in kWh" value={electric} onChange={(val) => setElectric(val)} />
                 <br />
-                {/* <Radio.Group
-                    name="heating"
-                    label="In dem Gebäude läuft eine..."
-                    withAsterisk
-                >
-                    <Radio value="Zentralheizung" label="Zentralheizung" />
-                    <Radio value="Nachtspeicherheizung" label="Nachtspeicherheizung" />
-                </Radio.Group>
-                <br />
-                <Radio.Group
-                    name="heating material"
-                    label="Es wird geheizt mit..."
-                    withAsterisk
-                >
-                    <Radio value="Erdgas" label="Erdgas" />
-                    <Radio value="Heizöl" label="Heizöl" />
-                    <Radio value="Fernwärme" label="Fernwärme" />
-                    <Radio value="Flüssiggas" label="Flüssiggas" />
-                    <Radio value="Holzpellets" label="Holzpellets" />
-                    <Radio value="Erdwärmepumpe" label="Erdwärmepumpe" />
-                    <Radio value="Luftwärmepumpe" label="Luftwärmepumpe" />
-                    <Radio value="Grundwasserwärmepumpe" label="Grundwasserwärmepumpe" />
-                </Radio.Group> */}
                 <br />
                 <div style={{ display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20 }}>
-                    <Button variant="filled" onClick={() => switchPage()}>Berechnen</Button>
+                    <Button variant="filled" onClick={() => {
+                        setGasConsumption(gas)
+                        switchPage()
+                    }}>
+                        Berechnen</Button>
                 </div>
             </Container>
         </div>
