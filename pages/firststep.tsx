@@ -8,7 +8,8 @@ const Firststep = () => {
     const [area, setArea] = useState<any | null>(500)
     const [gas, setGas] = useState<any | null>(80000)
     const [electric, setElectric] = useState<any | null>(20000)
-    const [propertyType, setPropertyType] = useState("RESIDENTIAL_SINGLE_FAMILY_HOUSING")
+    const [person, setPerson] = useState("Hauseigentümer*in")
+    const [propertyType, setPropertyType] = useState("RESIDENTIAL_MULTI_FAMILY_HOUSING")
     const { setCelcius, setGasConsumption, setElectricConsumption }: any = useContext(DatabaseContext);
 
     const switchPage = async () => {
@@ -46,6 +47,7 @@ const Firststep = () => {
 
     }
 
+
     return (
         <div>
             <Container>
@@ -54,6 +56,8 @@ const Firststep = () => {
                     name="person"
                     label="Ich bin"
                     withAsterisk
+                    value={person}
+                    onChange={setPerson}
                 >
                     <Radio value="Hauseigentümer*in" label="Hauseigentümer*in" />
                     <Radio value="Wohnungseigentümer*in" label="Wohnungseigentümer*in" />
@@ -66,6 +70,7 @@ const Firststep = () => {
                     label="Das Gebäude ist ein..."
                     withAsterisk
                     onChange={setPropertyType}
+                    value={propertyType}
                 >
                     <Radio value="RESIDENTIAL_SINGLE_FAMILY_HOUSING" label="Ein- oder Zweifamilienhaus" />
                     <Radio value="RESIDENTIAL_MULTI_FAMILY_HOUSING" label="Mehrfamilienhaus" />
