@@ -21,7 +21,7 @@ const Secondquestions = () => {
                 <p></p>
                 <br />
                 <div style={{ display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20 }}>
-                    <Button variant="filled" onClick={() => switchPage()}>Weiter mit Schritt 2</Button>
+                    <Button variant="filled" onClick={() => switchPage()}>Zu den Maßnahmen</Button>
                 </div>
             </Container>
         </div>

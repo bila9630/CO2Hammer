@@ -35,7 +35,7 @@ const CustomBarChart = () => {
 
     return (
         <div style={{ display: "flex", justifyContent: "center", marginTop: 20, marginBottom: 20 }}>
-            <BarChart width={730} height={250} data={data}>
+            <BarChart width={400} height={250} data={data}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
                 <YAxis />
