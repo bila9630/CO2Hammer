@@ -15,7 +15,7 @@ const Secondstep = () => {
                     />
                 </div>
                 <h2>Schritt 2: Bestandsanalyse</h2>
-                <p>Celcius: {celcius}</p>
+                <h3>Klimawirkung des Gebäudes: {celcius}</h3>
                 <p>Für Ihre Beratung betrachten wir das Gebäude ganzheitlich. Dazu benötigen wir weitere Daten:</p>
                 <p>
                     - zum Gebäude <br />

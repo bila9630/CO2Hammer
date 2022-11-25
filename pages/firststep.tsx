@@ -6,8 +6,10 @@ import { DatabaseContext } from '../context/DatabaseContext';
 const Firststep = () => {
     const router = useRouter();
     const [area, setArea] = useState<any | null>(100)
+    const [gas, setGas] = useState<any | null>(4000)
+    const [electric, setElectric] = useState<any | null>(10000)
     const [propertyType, setPropertyType] = useState("RESIDENTIAL_SINGLE_FAMILY_HOUSING")
-    const { setCelcius } : any = useContext(DatabaseContext);
+    const { setCelcius }: any = useContext(DatabaseContext);
 
     const switchPage = async () => {
 
@@ -24,8 +26,8 @@ const Firststep = () => {
                 "emissions": {
                     "districtCooling": 0,
                     "districtHeating": 0,
-                    "electricity": 4000 * 0.441,
-                    "fuel": 10000 * 0.2,
+                    "electricity": electric * 0.441,
+                    "fuel": gas * 0.2,
                     "fugitive": 0
                 },
                 "propertyType": propertyType,
@@ -70,6 +72,10 @@ const Firststep = () => {
                 </Radio.Group>
                 <br />
                 <NumberInput label="Hausfläche in qm" value={area} onChange={(val) => setArea(val)} />
+                <br />
+                <NumberInput label="Gasverbrauch in kWh" value={gas} onChange={(val) => setGas(val)} />
+                <br />
+                <NumberInput label="Stromverbrauch in kWh" value={electric} onChange={(val) => setElectric(val)} />
                 <br />
                 {/* <Radio.Group
                     name="heating"
