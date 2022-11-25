@@ -6,8 +6,6 @@ import {
     BarChart,
     Bar,
     Legend,
-    Line,
-    LineChart,
     Tooltip,
     XAxis,
     YAxis,
